@@ -25,5 +25,15 @@ namespace CapaNegocio
 
         }
 
+        public void EditarProd(string nombre, string desc, string marca, double precio, int stock, int id)
+        {
+            objetoCD.Editar(nombre, desc, marca, Convert.ToDouble(precio), Convert.ToInt32(stock), Convert.ToInt32(id));
+        }
+
+        public void EliminarPRod(string id)
+        {
+            objetoCD.Eliminar(Convert.ToInt32(id));
+        }
+
     }
 }

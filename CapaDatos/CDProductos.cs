@@ -19,8 +19,8 @@ namespace CapaDatos
         {
             //
             comando.Connection = conexion.AbrirConexion();
-            //comando.CommandText = "SELECT * FROM Productos";
-            comando.CommandText = "MostrarProductos"; 
+            //comando.CommandText = "SELECT * FROM Productos"; //Con código normal de la BD
+            comando.CommandText = "MostrarProductos"; //Con Procedimiento Almacenado
             comando.CommandType = CommandType.StoredProcedure;
             //comando.CommandType = CommandType.Text; // Cambia a Text si no es un procedimiento almacenado
 
@@ -32,18 +32,56 @@ namespace CapaDatos
 
         public void Insertar(string nombre, string desc, string marca, double precio, int stock)
         {
+
+            //Procedimiento Almacenado
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = $"insert into Productos values('{nombre}','{desc}','{marca}',{precio},{stock})";
-            comando.CommandType = CommandType.Text;
-            //comando.CommandType = CommandType.StoredProcedure;
-            //comando.Parameters.AddWithValue("@nombre", nombre);
-            //comando.Parameters.AddWithValue("@descrip", desc);
-            //comando.Parameters.AddWithValue("@Marca", marca);
-            //comando.Parameters.AddWithValue("@precio", precio);
-            //comando.Parameters.AddWithValue("@stock", precio);
+            //comando.CommandText = $"insert into Productos values('{nombre}','{desc}','{marca}',{precio},{stock})"; //Con código normal de la BD
+            comando.CommandText = "InsetarProductos"; //Con Procedimiento Almacenado
+            //comando.CommandType = CommandType.Text; //Con código normal de la BD
+            comando.CommandType = CommandType.StoredProcedure; //Con Procedimiento Almacenado
+
+            //Agregamos valores a los partámetros del Procedimiento
+            //con los parámetros que recibe el método.
+            comando.Parameters.AddWithValue("@nombre", nombre);
+            comando.Parameters.AddWithValue("@desc", desc);
+            comando.Parameters.AddWithValue("@Marca", marca);
+            comando.Parameters.AddWithValue("@precio", precio);
+            comando.Parameters.AddWithValue("@stock", precio);
+           
             comando.ExecuteNonQuery(); //Solo ejecuta instrucciones
-            //comando.Parameters.Clear();
+            comando.Parameters.Clear();
             //conexion.CerrarConexion();
         }
+
+        public void Editar(string nombre, string desc, string marca, double precio, int stock, int id)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "EditarProductos"; //Con Procedimiento Almacenado
+            comando.CommandType = CommandType.StoredProcedure; //Con Procedimiento Almacenado
+            comando.Parameters.AddWithValue("@nombre", nombre);
+            comando.Parameters.AddWithValue("@desc", desc);
+            comando.Parameters.AddWithValue("@Marca", marca);
+            comando.Parameters.AddWithValue("@precio", precio);
+            comando.Parameters.AddWithValue("@stock", stock);
+            comando.Parameters.AddWithValue("@id", id);
+            comando.ExecuteNonQuery(); //Solo ejecuta instrucciones
+            comando.Parameters.Clear();
+
+        }
+
+        public void Eliminar(int id)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "EliminarProducto";
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@idpro", id);
+
+            comando.ExecuteNonQuery();
+
+            comando.Parameters.Clear();
+        }
+
+
     }
 }
