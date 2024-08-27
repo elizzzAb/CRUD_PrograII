@@ -1,0 +1,10 @@
+C:\Users\Elizabeth\Desktop\ProgramacionIIPracticas\EjercicioPracticoCRUD\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\Elizabeth\Desktop\ProgramacionIIPracticas\EjercicioPracticoCRUD\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\Elizabeth\Desktop\ProgramacionIIPracticas\EjercicioPracticoCRUD\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\Elizabeth\Desktop\ProgramacionIIPracticas\EjercicioPracticoCRUD\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\Elizabeth\Desktop\ProgramacionIIPracticas\EjercicioPracticoCRUD\CapaNegocio\bin\Debug\CapaDatos.dll.config
+C:\Users\Elizabeth\Desktop\ProgramacionIIPracticas\EjercicioPracticoCRUD\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+C:\Users\Elizabeth\Desktop\ProgramacionIIPracticas\EjercicioPracticoCRUD\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\Elizabeth\Desktop\ProgramacionIIPracticas\EjercicioPracticoCRUD\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+C:\Users\Elizabeth\Desktop\ProgramacionIIPracticas\EjercicioPracticoCRUD\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\Elizabeth\Desktop\ProgramacionIIPracticas\EjercicioPracticoCRUD\CapaNegocio\obj\Debug\CapaNegocio.pdb

@@ -8,3 +8,9 @@ C:\Users\Elizabeth\Desktop\ProgramacionIIPracticas\EjercicioPracticoCRUD\Ejercic
 C:\Users\Elizabeth\Desktop\ProgramacionIIPracticas\EjercicioPracticoCRUD\EjercicioPracticoCRUD\obj\Debug\EjercicioPracticoCRUD.exe
 C:\Users\Elizabeth\Desktop\ProgramacionIIPracticas\EjercicioPracticoCRUD\EjercicioPracticoCRUD\obj\Debug\EjercicioPracticoCRUD.pdb
 C:\Users\Elizabeth\Desktop\ProgramacionIIPracticas\EjercicioPracticoCRUD\EjercicioPracticoCRUD\obj\Debug\EjercicioPracticoCRUD.Form1.resources
+C:\Users\Elizabeth\Desktop\ProgramacionIIPracticas\EjercicioPracticoCRUD\EjercicioPracticoCRUD\bin\Debug\CapaNegocio.dll
+C:\Users\Elizabeth\Desktop\ProgramacionIIPracticas\EjercicioPracticoCRUD\EjercicioPracticoCRUD\bin\Debug\CapaNegocio.pdb
+C:\Users\Elizabeth\Desktop\ProgramacionIIPracticas\EjercicioPracticoCRUD\EjercicioPracticoCRUD\obj\Debug\EjercicioPracticoCRUD.csproj.CopyComplete
+C:\Users\Elizabeth\Desktop\ProgramacionIIPracticas\EjercicioPracticoCRUD\EjercicioPracticoCRUD\bin\Debug\CapaDatos.dll
+C:\Users\Elizabeth\Desktop\ProgramacionIIPracticas\EjercicioPracticoCRUD\EjercicioPracticoCRUD\bin\Debug\CapaDatos.pdb
+C:\Users\Elizabeth\Desktop\ProgramacionIIPracticas\EjercicioPracticoCRUD\EjercicioPracticoCRUD\bin\Debug\CapaDatos.dll.config
