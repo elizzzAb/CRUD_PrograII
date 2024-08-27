@@ -35,5 +35,12 @@ namespace CapaNegocio
             objetoCD.Eliminar(Convert.ToInt32(id));
         }
 
+        public DataTable BuscarProd(string buscar)
+        {
+            DataTable tabla = new DataTable();
+            tabla = objetoCD.Buscar(buscar);
+            return tabla;
+        }
+
     }
 }

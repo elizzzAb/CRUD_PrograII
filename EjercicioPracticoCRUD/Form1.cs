@@ -47,35 +47,34 @@ namespace EjercicioPracticoCRUD
                     MessageBox.Show("Se insertó correctamente.");
                     MostrarProductos();
                     limpiarForm();
-
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("No es posible insertar datos por: " + ex);
+                    MessageBox.Show("No es posible insertar datos por: " + ex.Message);
                 }
-
             }
-
 
             if (Editar == true)
             {
                 try
                 {
-                    objetoCN.EditarProd(txtNombre.Text, txtDescripcion.Text, txtMarca.Text, txtPrecio.Text, txtStock.Text, IdProducto);
+                    double precio = Convert.ToDouble(txtPrecio.Text);
+                    int stock = Convert.ToInt32(txtStock.Text);
+                    int idProducto = Convert.ToInt32(IdProducto);
+
+                    objetoCN.EditarProd(txtNombre.Text, txtDescripcion.Text, txtMarca.Text, precio, stock, idProducto);
                     MessageBox.Show("Se editó correctamente.");
                     MostrarProductos();
                     limpiarForm();
                     Editar = false;
-
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("No es posible editar datos por: " + ex);
-
+                    MessageBox.Show("No es posible editar datos por: " + ex.Message);
                 }
             }
-            
-            
+
+
         }
 
         public void btnEditar_Click(object sender, EventArgs e)
@@ -121,6 +120,18 @@ namespace EjercicioPracticoCRUD
 
         }
 
-
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string buscar = txtBuscar.Text.Trim();
+            if (!string.IsNullOrEmpty(buscar))
+            {
+                dataGridView1.DataSource = objetoCN.BuscarProd(buscar);
+            }
+            else
+            {
+                MostrarProductos(); // Si no hay texto, muestra todos los productos
+            }
+        }
     }
+
 }

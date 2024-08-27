@@ -53,13 +53,13 @@ namespace CapaDatos
             //conexion.CerrarConexion();
         }
 
-        public void Editar(string nombre, string desc, string marca, double precio, int stock, int id)
+        public void Editar(string nombre, string descripcion, string marca, double precio, int stock, int id)
         {
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "EditarProductos"; //Con Procedimiento Almacenado
             comando.CommandType = CommandType.StoredProcedure; //Con Procedimiento Almacenado
             comando.Parameters.AddWithValue("@nombre", nombre);
-            comando.Parameters.AddWithValue("@desc", desc);
+            comando.Parameters.AddWithValue("@descripcion", descripcion);
             comando.Parameters.AddWithValue("@Marca", marca);
             comando.Parameters.AddWithValue("@precio", precio);
             comando.Parameters.AddWithValue("@stock", stock);
@@ -80,6 +80,19 @@ namespace CapaDatos
             comando.ExecuteNonQuery();
 
             comando.Parameters.Clear();
+        }
+
+        public DataTable Buscar(string buscar)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "BuscarProductos"; // Procedimiento Almacenado
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@buscar", buscar);
+            leer = comando.ExecuteReader();
+            tabla.Load(leer);
+            conexion.CerrarConexion();
+            comando.Parameters.Clear();
+            return tabla;
         }
 
 
