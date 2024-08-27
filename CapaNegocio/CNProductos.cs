@@ -18,6 +18,12 @@ namespace CapaNegocio
             tabla = objetoCD.Mostrar();
             return tabla;
         }
-            
+
+        public void InsertarPRod(string nombre, string desc, string marca, string precio, string stock) //todos son 'string' porque todos los valores de textbox son tipo string.
+        {
+            objetoCD.Insertar(nombre, desc, marca, Convert.ToDouble(precio), Convert.ToInt32(stock)); //
+
+        }
+
     }
 }

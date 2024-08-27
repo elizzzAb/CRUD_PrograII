@@ -19,13 +19,31 @@ namespace CapaDatos
         {
             //
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "SELECT * FROM Productos"; 
-            comando.CommandType = CommandType.Text; // Cambia a Text si no es un procedimiento almacenado
+            //comando.CommandText = "SELECT * FROM Productos";
+            comando.CommandText = "MostrarProductos"; 
+            comando.CommandType = CommandType.StoredProcedure;
+            //comando.CommandType = CommandType.Text; // Cambia a Text si no es un procedimiento almacenado
 
-            leer = comando.ExecuteReader();
+            leer = comando.ExecuteReader(); //Devuelve filas
             tabla.Load(leer);
             conexion.CerrarConexion();
             return tabla;
+        }
+
+        public void Insertar(string nombre, string desc, string marca, double precio, int stock)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = $"insert into Productos values('{nombre}','{desc}','{marca}',{precio},{stock})";
+            comando.CommandType = CommandType.Text;
+            //comando.CommandType = CommandType.StoredProcedure;
+            //comando.Parameters.AddWithValue("@nombre", nombre);
+            //comando.Parameters.AddWithValue("@descrip", desc);
+            //comando.Parameters.AddWithValue("@Marca", marca);
+            //comando.Parameters.AddWithValue("@precio", precio);
+            //comando.Parameters.AddWithValue("@stock", precio);
+            comando.ExecuteNonQuery(); //Solo ejecuta instrucciones
+            //comando.Parameters.Clear();
+            //conexion.CerrarConexion();
         }
     }
 }

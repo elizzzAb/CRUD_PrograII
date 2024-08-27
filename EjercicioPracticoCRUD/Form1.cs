@@ -33,5 +33,19 @@ namespace EjercicioPracticoCRUD
             dataGridView1.DataSource = objetoCN.MostrarProd();
         }
 
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                objetoCN.InsertarPRod(txtNombre.Text, txtDescripcion.Text, txtMarca.Text, txtPrecio.Text, txtStock.Text);
+                MessageBox.Show("Se insertó correctamente.");
+                MostrarProductos();
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show("No es posible insertar datos por: " + ex);
+            }
+            
+        }
     }
 }
