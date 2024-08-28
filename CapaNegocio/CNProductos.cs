@@ -11,23 +11,21 @@ namespace CapaNegocio
 {
     public class CNProductos
     {
-        public CDProductos objetoCD = new CDProductos();
+        private CDProductos objetoCD = new CDProductos();
+
         public DataTable MostrarProd()
         {
-            DataTable tabla = new DataTable();
-            tabla = objetoCD.Mostrar();
-            return tabla;
+            return objetoCD.Mostrar();
         }
 
-        public void InsertarPRod(string nombre, string desc, string marca, string precio, string stock) //todos son 'string' porque todos los valores de textbox son tipo string.
+        public void InsertarPRod(string nombre, string descripcion, string marca, string precio, string stock)
         {
-            objetoCD.Insertar(nombre, desc, marca, Convert.ToDouble(precio), Convert.ToInt32(stock)); //
-
+            objetoCD.Insertar(nombre, descripcion, marca, Convert.ToDouble(precio), Convert.ToInt32(stock));
         }
 
-        public void EditarProd(string nombre, string desc, string marca, double precio, int stock, int id)
+        public void EditarProd(string nombre, string descripcion, string marca, double precio, int stock, int id)
         {
-            objetoCD.Editar(nombre, desc, marca, Convert.ToDouble(precio), Convert.ToInt32(stock), Convert.ToInt32(id));
+            objetoCD.Editar(nombre, descripcion, marca, precio, stock, id);
         }
 
         public void EliminarPRod(string id)
@@ -35,12 +33,17 @@ namespace CapaNegocio
             objetoCD.Eliminar(Convert.ToInt32(id));
         }
 
-        public DataTable BuscarProd(string buscar)
+        //public DataTable BuscarProd(string buscar)
+        //{
+        //    return objetoCD.Buscar(buscar);
+        //}
+
+        public DataTable BuscarProd(string textoBusqueda)
         {
-            DataTable tabla = new DataTable();
-            tabla = objetoCD.Buscar(buscar);
-            return tabla;
+            return objetoCD.Buscar(textoBusqueda);
         }
 
+
     }
+
 }

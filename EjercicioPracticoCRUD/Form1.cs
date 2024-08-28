@@ -31,14 +31,11 @@ namespace EjercicioPracticoCRUD
 
         public void MostrarProductos()
         {
-            CNProductos objeto = new CNProductos();
-
-            dataGridView1.DataSource = objeto.MostrarProd();
+            dataGridView1.DataSource = objetoCN.MostrarProd();
         }
 
         public void btnGuardar_Click(object sender, EventArgs e)
         {
-
             if (Editar == false)
             {
                 try
@@ -53,16 +50,11 @@ namespace EjercicioPracticoCRUD
                     MessageBox.Show("No es posible insertar datos por: " + ex.Message);
                 }
             }
-
-            if (Editar == true)
+            else if (Editar == true)
             {
                 try
                 {
-                    double precio = Convert.ToDouble(txtPrecio.Text);
-                    int stock = Convert.ToInt32(txtStock.Text);
-                    int idProducto = Convert.ToInt32(IdProducto);
-
-                    objetoCN.EditarProd(txtNombre.Text, txtDescripcion.Text, txtMarca.Text, precio, stock, idProducto);
+                    objetoCN.EditarProd(txtNombre.Text, txtDescripcion.Text, txtMarca.Text, Convert.ToDouble(txtPrecio.Text), Convert.ToInt32(txtStock.Text), Convert.ToInt32(IdProducto));
                     MessageBox.Show("Se editó correctamente.");
                     MostrarProductos();
                     limpiarForm();
@@ -73,8 +65,6 @@ namespace EjercicioPracticoCRUD
                     MessageBox.Show("No es posible editar datos por: " + ex.Message);
                 }
             }
-
-
         }
 
         public void btnEditar_Click(object sender, EventArgs e)
@@ -89,21 +79,21 @@ namespace EjercicioPracticoCRUD
                 txtPrecio.Text = dataGridView1.CurrentRow.Cells["Precio"].Value.ToString();
                 txtStock.Text = dataGridView1.CurrentRow.Cells["Stock"].Value.ToString();
 
-                IdProducto = dataGridView1.CurrentRow.Cells["id"].Value.ToString();
-
-
+                IdProducto = dataGridView1.CurrentRow.Cells["Id"].Value.ToString();
             }
             else
+            {
                 MessageBox.Show("Selecciona una fila, por favor.");
+            }
         }
 
         public void limpiarForm()
         {
+            txtNombre.Clear();
             txtDescripcion.Clear();
-            txtMarca.Text = "";
+            txtMarca.Clear();
             txtPrecio.Clear();
             txtStock.Clear();
-            txtNombre.Clear();
         }
 
         public void btnEliminar_Click(object sender, EventArgs e)
@@ -111,27 +101,42 @@ namespace EjercicioPracticoCRUD
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 IdProducto = dataGridView1.CurrentRow.Cells["Id"].Value.ToString();
-                objetoCN.EliminarPRod(IdProducto);
-                MessageBox.Show("Eliminado correctamente");
-                MostrarProductos();
+                try
+                {
+                    objetoCN.EliminarPRod(IdProducto);
+                    MessageBox.Show("Producto eliminado correctamente.");
+                    MostrarProductos(); // Actualizar vista después de la eliminación
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No es posible eliminar el producto: " + ex.Message);
+                }
             }
             else
-                MessageBox.Show("Selecciona una fila por favor.");
-
+            {
+                MessageBox.Show("Por favor, selecciona una fila.");
+            }
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        public void btnBuscar_Click(object sender, EventArgs e)
         {
-            string buscar = txtBuscar.Text.Trim();
-            if (!string.IsNullOrEmpty(buscar))
+            if (!string.IsNullOrWhiteSpace(txtBuscar.Text))
             {
-                dataGridView1.DataSource = objetoCN.BuscarProd(buscar);
+                try
+                {
+                    dataGridView1.DataSource = objetoCN.BuscarProd(txtBuscar.Text);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No es posible realizar la búsqueda: " + ex.Message);
+                }
             }
             else
             {
-                MostrarProductos(); // Si no hay texto, muestra todos los productos
+                MostrarProductos(); // Mostrar todo si no se ingresa texto de búsqueda
             }
         }
+
     }
 
 }
