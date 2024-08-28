@@ -38,9 +38,14 @@ namespace CapaNegocio
         //    return objetoCD.Buscar(buscar);
         //}
 
-        public DataTable BuscarProd(string textoBusqueda)
+        //public DataTable BuscarProd(string textoBusqueda)
+        //{
+        //    return objetoCD.Buscar(textoBusqueda);
+        //}
+
+        public DataTable BuscarProducto(string nombre)
         {
-            return objetoCD.Buscar(textoBusqueda);
+            return objetoCD.Buscar(nombre);
         }
 
 

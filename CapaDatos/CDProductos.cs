@@ -70,19 +70,44 @@ namespace CapaDatos
             comando.Parameters.AddWithValue("@idpro", id);
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
-            conexion.CerrarConexion();
+            //conexion.CerrarConexion();
+
+
+
+
+
         }
 
-        public DataTable Buscar(string textoBusqueda)
+        //public DataTable Buscar(string textoBusqueda)
+        //{
+        //    comando.Connection = conexion.AbrirConexion();
+        //    comando.CommandText = "BuscarProductos";
+        //    comando.CommandType = CommandType.StoredProcedure;
+        //    comando.Parameters.AddWithValue("@buscar", textoBusqueda);
+
+        //    leer = comando.ExecuteReader();
+        //    tabla.Load(leer);
+        //    conexion.CerrarConexion();
+        //    comando.Parameters.Clear();
+
+        //    return tabla;
+
+            
+
+        //}
+
+
+        public DataTable Buscar(string nombre)
         {
             comando.Connection = conexion.AbrirConexion();
-            comando.CommandText = "BuscarProductos";
+            comando.CommandText = "BuscarProducto";
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@buscar", textoBusqueda);
+            comando.Parameters.AddWithValue("@nombre", nombre);
 
             leer = comando.ExecuteReader();
             tabla.Load(leer);
             conexion.CerrarConexion();
+
             comando.Parameters.Clear();
 
             return tabla;

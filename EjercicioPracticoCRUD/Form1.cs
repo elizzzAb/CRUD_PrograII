@@ -101,41 +101,62 @@ namespace EjercicioPracticoCRUD
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 IdProducto = dataGridView1.CurrentRow.Cells["Id"].Value.ToString();
-                try
-                {
-                    objetoCN.EliminarPRod(IdProducto);
-                    MessageBox.Show("Producto eliminado correctamente.");
-                    MostrarProductos(); // Actualizar vista después de la eliminación
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("No es posible eliminar el producto: " + ex.Message);
-                }
+                objetoCN.EliminarPRod(IdProducto);
+                MessageBox.Show("Eliminado correctamente");
+                MostrarProductos();
             }
             else
             {
                 MessageBox.Show("Por favor, selecciona una fila.");
             }
+
+
+
+
+
         }
 
         public void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtBuscar.Text))
-            {
-                try
-                {
-                    dataGridView1.DataSource = objetoCN.BuscarProd(txtBuscar.Text);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("No es posible realizar la búsqueda: " + ex.Message);
-                }
-            }
-            else
-            {
-                MostrarProductos(); // Mostrar todo si no se ingresa texto de búsqueda
-            }
+            //if (!string.IsNullOrWhiteSpace(txtBuscar.Text))
+            //{
+            //    try
+            //    {
+            //        dataGridView1.DataSource = objetoCN.BuscarProd(txtBuscar.Text);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show("No es posible realizar la búsqueda: " + ex.Message);
+            //    }
+            //}
+            //else
+            //{
+            //    MostrarProductos(); // Mostrar todo si no se ingresa texto de búsqueda
+            //}
+
+
+
+
         }
+
+
+        //Solo se puede usando el 'Nombre del Producto'.
+        public void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            filtro();
+        }
+
+        public void filtro()
+        {
+            objetoCN = new CNProductos();
+
+            string nombreProducto = txtBuscar.Text;
+
+            // Llamada al método Buscar y asignación del resultado a un DataGridView
+            dataGridView1.DataSource = objetoCN.BuscarProducto(nombreProducto);
+
+        }
+
 
     }
 
