@@ -96,24 +96,7 @@ namespace EjercicioPracticoCRUD
             txtStock.Clear();
         }
 
-        public void btnEliminar_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                IdProducto = dataGridView1.CurrentRow.Cells["Id"].Value.ToString();
-                objetoCN.EliminarPRod(IdProducto);
-                MessageBox.Show("Eliminado correctamente.");
-                MostrarProductos();
-            }
-            else
-            
-                MessageBox.Show("Por favor, selecciona una fila.");
-
-
-
-
-
-        }
+        
 
         public void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -156,7 +139,25 @@ namespace EjercicioPracticoCRUD
 
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            
+                //MessageBox.Show("Por favor, selecciona una fila.");
 
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    IdProducto = dataGridView1.CurrentRow.Cells["Id"].Value.ToString();
+                    objetoCN.EliminarPRod(IdProducto);
+                    MessageBox.Show("Eliminado correctamente.");
+                    MostrarProductos();
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, selecciona una fila.");
+                }
+
+
+        }
     }
 
 }
