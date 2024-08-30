@@ -44,6 +44,7 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -201,12 +202,22 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Nirmala UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(842, 156);
+            this.label5.Location = new System.Drawing.Point(843, 137);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 15);
             this.label5.TabIndex = 16;
             this.label5.Text = "Buscar";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Nirmala UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(829, 152);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(75, 15);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Por Nombre";
             // 
             // Form1
             // 
@@ -214,6 +225,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Plum;
             this.ClientSize = new System.Drawing.Size(933, 554);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.btnEliminar);
@@ -260,6 +272,7 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label7;
     }
 }
 

@@ -102,13 +102,12 @@ namespace EjercicioPracticoCRUD
             {
                 IdProducto = dataGridView1.CurrentRow.Cells["Id"].Value.ToString();
                 objetoCN.EliminarPRod(IdProducto);
-                MessageBox.Show("Eliminado correctamente");
+                MessageBox.Show("Eliminado correctamente.");
                 MostrarProductos();
             }
             else
-            {
+            
                 MessageBox.Show("Por favor, selecciona una fila.");
-            }
 
 
 
