@@ -51,7 +51,7 @@ namespace EjercicioPracticoCRUD
                 {
                     // Llama al método 'InsertarPRod' de la capa de negocio para insertar un nuevo producto con los datos del formulario.
                     objetoCN.InsertarPRod(txtNombre.Text, txtDescripcion.Text, txtMarca.Text, txtPrecio.Text, txtStock.Text);
-                    MessageBox.Show("Se insertó correctamente.");
+                    MessageBox.Show("¡Se insertó correctamente!");
                     // Actualiza el DataGridView para mostrar los productos después de la inserción.
                     MostrarProductos();
                     limpiarForm(); // Limpia los campos del formulario.
@@ -69,7 +69,7 @@ namespace EjercicioPracticoCRUD
                 {
                     // Llama al método 'EditarProd' de la capa de negocio para editar un producto existente con los datos del formulario y el ID del producto seleccionado.
                     objetoCN.EditarProd(txtNombre.Text, txtDescripcion.Text, txtMarca.Text, Convert.ToDouble(txtPrecio.Text), Convert.ToInt32(txtStock.Text), Convert.ToInt32(IdProducto));
-                    MessageBox.Show("Se editó correctamente.");
+                    MessageBox.Show("¡Se editó correctamente!");
                     // Actualiza el DataGridView para mostrar los productos después de la edición.
                     MostrarProductos();
                     // Limpia los campos del formulario.
@@ -105,7 +105,7 @@ namespace EjercicioPracticoCRUD
             }
             else
             {
-                MessageBox.Show("Selecciona una fila, por favor.");
+                MessageBox.Show("Para ejecutar esta acción, debes seleccionar una fila.");
             }
         }
 
@@ -173,12 +173,12 @@ namespace EjercicioPracticoCRUD
                     IdProducto = dataGridView1.CurrentRow.Cells["Id"].Value.ToString();
                     // Llama al método 'EliminarPRod' de la capa de negocio para eliminar el producto seleccionado.
                     objetoCN.EliminarPRod(IdProducto);
-                    MessageBox.Show("Eliminado correctamente.");
+                    MessageBox.Show("¡Eliminado correctamente!");
                     MostrarProductos(); // Actualiza el DataGridView.
             }
                 else
                 {
-                    MessageBox.Show("Por favor, selecciona una fila.");
+                    MessageBox.Show("Para ejecutar esta acción, debes seleccionar una fila.");
                 }
 
 
