@@ -59,7 +59,10 @@ namespace EjercicioPracticoCRUD
                 catch (Exception ex)
                 {
                     // Muestra un mensaje de error en caso de que la inserción falle.
-                    MessageBox.Show("No es posible insertar datos por: " + ex.Message);
+                    MessageBox.Show("En este momento no es posible insertar los datos.");
+
+                    //MessageBox.Show("No es posible insertar datos por: " + ex.Message); //probando!
+
                 }
             }
             else if (Editar == true)
@@ -80,7 +83,9 @@ namespace EjercicioPracticoCRUD
                 catch (Exception ex)
                 {
                     // Muestra un mensaje de error en caso de que la edición falle.
-                    MessageBox.Show("No es posible editar datos por: " + ex.Message);
+                    MessageBox.Show("No es posible editar los datos, revisa que todo esté correctamente.");
+                    //MessageBox.Show("No es posible editar datos por: " + ex.Message); //
+
                 }
             }
         }
